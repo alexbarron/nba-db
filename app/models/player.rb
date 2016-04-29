@@ -8,7 +8,11 @@ class Player < ActiveRecord::Base
     end
     players = JSON.parse(@resp.body)
     players.each do |player|
-      Player.find_or_create_by(player_id: player["id"], name: player["player_name"], team_id: player["team_id"])
+      Player.find_or_create_by(player_id: player["id"], 
+        name: player["player_name"], 
+        team_id: player["team_id"], 
+        birthdate: player["birth_date"], 
+        position: player["dk_position"])
     end
   end
 end

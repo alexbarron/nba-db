@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410155920) do
+ActiveRecord::Schema.define(version: 20160429221544) do
 
   create_table "players", primary_key: "player_id", force: :cascade do |t|
     t.integer  "team_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "birthdate"
+    t.string   "position"
   end
 
   add_index "players", ["player_id"], name: "index_players_on_player_id", unique: true
