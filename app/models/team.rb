@@ -2,7 +2,9 @@ class Team < ActiveRecord::Base
   self.primary_key = 'team_id'
   has_many :players
   has_many :home_games, foreign_key: :home_id, class_name: "Game"
-  has_many :away_games, foreign_key: :home_id, class_name: "Game"
+  has_many :away_games, foreign_key: :away_id, class_name: "Game"
+  has_many :wins, foreign_key: :winner, class_name: "Game"
+  has_many :losses, foreign_key: :loser, class_name: "Game"
 
   def self.get_all_teams
     @resp = Faraday.post 'http://api.probasketballapi.com/team' do |req|
