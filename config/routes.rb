@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :games
   resources :teams, param: :team_id
   resources :players, param: :player_id
   # The priority is based upon order of creation: first created -> highest priority.
