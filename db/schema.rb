@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429230853) do
+ActiveRecord::Schema.define(version: 20160429233833) do
 
   create_table "games", primary_key: "game_id", force: :cascade do |t|
     t.integer  "home_id"
     t.integer  "away_id"
     t.string   "season"
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "home_score"
     t.integer  "away_score"
     t.integer  "winner"
     t.integer  "loser"
+    t.string   "game_type",  default: "regular"
   end
 
   create_table "players", primary_key: "player_id", force: :cascade do |t|

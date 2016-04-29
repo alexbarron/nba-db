@@ -23,4 +23,24 @@ class Team < ActiveRecord::Base
   def games
     self.home_games + self.away_games
   end
+
+  def reg_wins
+    self.wins.where(game_type: "regular")
+  end
+
+  def reg_losses
+    self.losses.where(game_type: "regular")
+  end
+
+  def winning_percentage
+    self.reg_wins.count / 82.0
+  end
+
+  def playoff_wins
+    self.wins.where(game_type: "playoff")
+  end
+
+  def playoff_losses
+    self.losses.where(game_type: "playoff")
+  end
 end

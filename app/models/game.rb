@@ -43,6 +43,5 @@ class Game < ActiveRecord::Base
       end
       game.save
     end
-
   end
 end

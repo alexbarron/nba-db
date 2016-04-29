@@ -1,3 +1,16 @@
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Percentage</th>
+  </tr>
 <% @teams.each do |team| %>
-  <li><%= link_to team.full_name, team %></li>
+  <tr>
+    <td><%= link_to team.full_name, team %></td>
+    <td><%= team.reg_wins.count %></td>
+    <td><%= team.reg_losses.count %></td>
+    <td><%= number_with_precision(team.winning_percentage, precision: 3)  %>   </td>
+  </tr>
 <% end %>
+</table>
